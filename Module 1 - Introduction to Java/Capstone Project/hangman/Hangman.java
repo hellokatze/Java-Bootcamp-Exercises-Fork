@@ -77,23 +77,24 @@ public class Hangman {
 
       Scanner scan = new Scanner(System.in);
 
+      String randomWord = randomWord(words);
+      char[] placeholders = placeholders(randomWord);
+
+      System.out.println(gallows[0]);
+      System.out.print("Word:\t");
+      printPlaceholders(placeholders);
+      System.out.print("\n\nMisses: ");
+      System.out.print("\n\nGuess: ");
 
       for (int i = 0; i < 6; i++) {
-        System.out.println(gallows[0]);
-        String randomWord = randomWord(words);
-        System.out.print("Word:\t");
-        printPlaceholders(randomWord);
-        System.out.print("\n\nMisses: ");
-        System.out.print("\n\nGuess: ");
         String guess = scan.nextLine();
-
         if (checkGuess(randomWord, guess)) {
           System.out.println(gallows[i]);
           System.out.print("Word:\t");
-          updatePlaceholders(randomWord, guess);
+          updatePlaceholders(randomWord, placeholders, guess);
+          printPlaceholders(placeholders);
           System.out.print("\n\nMisses: ");
           System.out.print("\n\nGuess: ");
-          guess = scan.nextLine();
         }
       }
 
@@ -104,13 +105,6 @@ public class Hangman {
     public static String randomWord(String[] words) {
       int randomNumber = (int) (Math.random() * words.length);
       return words[randomNumber];
-    }
-
-    public static void printPlaceholders(String word) {
-      char[] characters = word.toCharArray();
-      for (int i = 0; i < characters.length; i++) {
-        System.out.print("_ ");
-      }
     }
 
     public static boolean checkGuess(String word, String guess) {
@@ -124,23 +118,29 @@ public class Hangman {
       return false;
     }
 
-    public static void updatePlaceholders(String word, String guess) {
-      for (int i = 0; i < word.length(); i++) {
-        char ch = word.charAt(i);
-        if (ch == guess.charAt(0)) {
-          System.out.print(ch + " ");
-        } else {
-          System.out.print("_ ");
-        }
+    public static void printPlaceholders(char[] placeholders) {
+      for (int i = 0; i < placeholders.length; i++) {
+        System.out.print(placeholders[i] + " ");
       }
     }
 
-    // public static char[] placeholders(String word) {
-    //   char[] characters = new char[word.length()];
-    //   for (int i = 0; i < characters.length; i++) {
-    //     characters[i] = '_';
-    //   }
-    //   return characters;
-    // }
+    public static char[] updatePlaceholders(String word, char[] placeholders, String guess) {
+      for (int i = 0; i < word.length(); i++) {
+        char ch = word.charAt(i);
+        char guessPlaceholder = guess.charAt(0);
+        if (ch == guessPlaceholder) {
+          placeholders[i] = guessPlaceholder;
+        }
+      }
+      return placeholders;
+    }
+
+    public static char[] placeholders(String word) {
+      char[] characters = new char[word.length()];
+      for (int i = 0; i < characters.length; i++) {
+        characters[i] = '_';
+      }
+      return characters;
+    }
 
 }
