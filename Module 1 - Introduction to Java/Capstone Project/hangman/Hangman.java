@@ -5,7 +5,11 @@ public class Hangman {
   // DONE 2. display 1 '_' for each character in the selected word
   // DONE 3. write function that will check if user's guess matches character in the random word.
   // DONE 4. write function that will update the placeholders with the correctly guessed character.
-  // 5. write function that will print user's missed guesses – an empty char[6] array
+  // DONE 5. write function that will print user's missed guesses – an empty char[6] array
+  // DONE 6. make the hangman counter work:
+    // if the user guesses correctly, gallows should stay the same.
+    // if the user guesses incorrectly, gallows should index + 1.
+  // 7. 
 
     public static String[] words = {"ant", "baboon", "badger", "bat", "bear", "beaver", "camel",
     "cat", "clam", "cobra", "cougar", "coyote", "crow", "deer",
@@ -92,10 +96,11 @@ public class Hangman {
         String guess = scan.nextLine();
 
         if (checkGuess(randomWord, guess)) {
-          System.out.println(gallows[i]);
           updatePlaceholders(randomWord, placeholders, guess);
+          System.out.println(gallows[i]);
         } else {
           missedGuesses+= guess;
+          System.out.println(gallows[i+1]);
         }
       }
 
@@ -143,8 +148,4 @@ public class Hangman {
       }
       return placeholders;
     }
-
-    // public static void printMissedGuesses(String missedGuesses) {
-    //   System.out.print(missedGuesses);
-    // }
 }
