@@ -1,6 +1,9 @@
+import java.util.Scanner;
+
 public class Hangman {
-  // 1. write function that will return random word from words array using Math.random + index
-  // 2. display 1 '_' for each character in the selected word
+  // DONE 1. write function that will return random word from words array using Math.random + index
+  // DONE 2. display 1 '_' for each character in the selected word
+  //
 
     public static String[] words = {"ant", "baboon", "badger", "bat", "bear", "beaver", "camel",
     "cat", "clam", "cobra", "cougar", "coyote", "crow", "deer",
@@ -69,14 +72,21 @@ public class Hangman {
     " =========\n"};
 
     public static void main(String[] args) {
+      Scanner scan = new Scanner(System.in);
+
       String randomWord = randomWord(words);
-      char[] characters = placeholders(randomWord);
+      char[] characters = randomWord.toCharArray();
+      System.out.println(gallows[0]);
       System.out.print("Word:\t");
       for (int i = 0; i < characters.length; i++) {
-        System.out.print(characters[i] + " ");
+        System.out.print("_ ");
       }
+      System.out.print("\n\nMisses: ");
+      System.out.print("\n\nGuess: ");
+      String guess = scan.nextLine();
 
-
+      System.out.println();
+      scan.close();
     }
 
     public static String randomWord(String[] words) {
@@ -84,12 +94,12 @@ public class Hangman {
       return words[randomNumber];
     }
 
-    public static char[] placeholders(String word) {
-      char[] characters = new char[word.length()];
-      for (int i = 0; i < characters.length; i++) {
-        characters[i] = '_';
-      }
-      return characters;
-    }
+    // public static char[] placeholders(String word) {
+    //   char[] characters = new char[word.length()];
+    //   for (int i = 0; i < characters.length; i++) {
+    //     characters[i] = '_';
+    //   }
+    //   return characters;
+    // }
 
 }
