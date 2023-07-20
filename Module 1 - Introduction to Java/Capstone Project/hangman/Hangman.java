@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class Hangman {
   // DONE 1. write function that will return random word from words array using Math.random + index
@@ -90,7 +91,7 @@ public class Hangman {
       int gallowsIndex = 0;
       int missCounter = 0;
 
-      while (randomWord.toCharArray() != placeholders) {
+      while (!(Arrays.equals(randomWord.toCharArray(), placeholders))) {
         System.out.println(gallows[gallowsIndex]);
         System.out.print("Word:\t");
         printPlaceholders(placeholders);
@@ -108,10 +109,16 @@ public class Hangman {
         }
 
         if (missCounter == 6) {
-          System.out.println("You lose! Game over!");
+          System.out.println(gallows[6]);
+          System.out.println("You lose!");
+          System.out.println("\nThe word was: " + randomWord);
           System.exit(0);
         }
       }
+
+      System.out.print("\nWord:\t");
+      printPlaceholders(placeholders);
+      System.out.println("\n\nWell done! You win!");
 
       System.out.println();
       scan.close();
