@@ -7,9 +7,12 @@ public class Hangman {
   // DONE 4. write function that will update the placeholders with the correctly guessed character.
   // DONE 5. write function that will print user's missed guesses – an empty char[6] array
   // DONE 6. make the hangman counter work:
-    // if the user guesses correctly, gallows should stay the same.
-    // if the user guesses incorrectly, gallows should index + 1.
-  // 7. 
+    // DONE if the user guesses correctly, gallows should stay the same.
+    // DONE if the user guesses incorrectly, gallows should index + 1.
+  // 7. implement win-lose logic
+    // DONE if user guesses incorrectly 6x, game over.
+    // if user guess word = randomWord, user wins.
+
 
     public static String[] words = {"ant", "baboon", "badger", "bat", "bear", "beaver", "camel",
     "cat", "clam", "cobra", "cougar", "coyote", "crow", "deer",
@@ -84,23 +87,29 @@ public class Hangman {
       String randomWord = randomWord(words);
       char[] placeholders = placeholders(randomWord);
       String missedGuesses = "";
+      int gallowsIndex = 0;
+      int missCounter = 0;
 
-      System.out.println(gallows[0]);
-
-      for (int i = 0; i < 6; i++) {
+      while (randomWord.toCharArray() != placeholders) {
+        System.out.println(gallows[gallowsIndex]);
         System.out.print("Word:\t");
         printPlaceholders(placeholders);
         System.out.print("\n\nMisses:\t");
         System.out.println(missedGuesses);
-        System.out.print("\n\nGuess: ");
+        System.out.print("\nGuess: ");
         String guess = scan.nextLine();
 
         if (checkGuess(randomWord, guess)) {
-          updatePlaceholders(randomWord, placeholders, guess);
-          System.out.println(gallows[i]);
+          updatePlaceholders(randomWord, placeholders, guess);;
         } else {
           missedGuesses+= guess;
-          System.out.println(gallows[i+1]);
+          gallowsIndex++;
+          missCounter++;
+        }
+
+        if (missCounter == 6) {
+          System.out.println("You lose! Game over!");
+          System.exit(0);
         }
       }
 
