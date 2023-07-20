@@ -10,9 +10,9 @@ public class Hangman {
   // DONE 6. make the hangman counter work:
     // DONE if the user guesses correctly, gallows should stay the same.
     // DONE if the user guesses incorrectly, gallows should index + 1.
-  // 7. implement win-lose logic
+  // DONE 7. implement win-lose logic
     // DONE if user guesses incorrectly 6x, game over.
-    // if user guess word = randomWord, user wins.
+    // DONE if user guess word = randomWord, user wins.
 
 
     public static String[] words = {"ant", "baboon", "badger", "bat", "bear", "beaver", "camel",
@@ -134,7 +134,6 @@ public class Hangman {
         char ch = word.charAt(i);
         if (ch == guess.charAt(0)) {
           return true;
-        } else {
         }
       }
       return false;
