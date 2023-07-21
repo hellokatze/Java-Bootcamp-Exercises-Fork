@@ -51,6 +51,10 @@ public class Car {
     this.color = color;
   }
 
+  public void drive() {
+    System.out.println("You bought the beautiful " + this.year + " " + this.color + " " + this.make + " for " + this.price + ".");
+    System.out.println("Please drive your car to the nearest exit.");
+  }
 }
 
 // A class is a blueprint that can create many car objects.

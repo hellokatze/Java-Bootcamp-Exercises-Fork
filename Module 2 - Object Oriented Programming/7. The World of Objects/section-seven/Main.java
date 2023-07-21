@@ -7,21 +7,17 @@ public class Main {
     // nissan.color = "green";
 
     Car nissan2 = new Car(nissan);
+    nissan2.setColor("Yellow");
     // nissan and nissan2 share a reference to the exact same object. One object can be updated through two different variables.
     // Car nissan2 = nissan;
-
-    nissan2.setColor("Yellow");
-    nissan.setColor("Orange");
-    nissan2.setColor("Blue");
-    nissan.setColor("Purple");
-    nissan2.setColor("Fuchsia");
-    nissan.setColor("Beige");
 
     Car dodge = new Car("Dodge", 11000, 2019, "blue");
     // dodge.make = "Dodge";
     // dodge.price = 11000;
     // dodge.year = 2019;
     // dodge.color = "blue";
+
+    nissan2.drive();
 
     nissan.setColor("Jet black");
     dodge.setColor("Jet black");
