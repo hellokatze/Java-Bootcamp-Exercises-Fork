@@ -11,6 +11,14 @@ public class Car {
     this.color = color;
   }
 
+  public Car(Car source) {
+    // update the new object's fields with the values from source object.
+    this.make = source.make;
+    this.price = source.price;
+    this.year = source.year;
+    this.color = source.color;
+  }
+
   public String getMake() {
     return this.make;
   }
