@@ -12,7 +12,7 @@ public class Car {
   }
 
   public String getMake() {
-    return make;
+    return this.make;
   }
 
   public void setMake(String make) {
@@ -20,7 +20,7 @@ public class Car {
   }
 
   public double getPrice() {
-    return price;
+    return this.price;
   }
 
   public void setPrice(double price) {
@@ -28,7 +28,7 @@ public class Car {
   }
 
   public int getYear() {
-    return year;
+    return this.year;
   }
 
   public void setYear(int year) {
@@ -36,12 +36,13 @@ public class Car {
   }
 
   public String getColor() {
-    return color;
+    return this.color;
   }
 
   public void setColor(String color) {
     this.color = color;
   }
+
 }
 
 // A class is a blueprint that can create many car objects.
