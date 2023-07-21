@@ -12,9 +12,9 @@ public class Main {
     // dodge.year = 2019;
     // dodge.color = "blue";
 
-    System.out.println("This " + nissan.make + " is worth $" + nissan.price +
-    ". It was built in " + nissan.year + ". It is " + nissan.color + ".\n");
-    System.out.println("This " + dodge.make + " is worth $" + dodge.price +
-    ". It was built in " + dodge.year + ". It is " + dodge.color + ".\n");
+    System.out.println("This " + nissan.getMake() + " is worth $" + nissan.getPrice() +
+    ". It was built in " + nissan.getYear() + ". It is " + nissan.getColor() + ".\n");
+    System.out.println("This " + dodge.getMake() + " is worth $" + dodge.getPrice() +
+    ". It was built in " + dodge.getYear() + ". It is " + dodge.getColor() + ".\n");
   }
 }
