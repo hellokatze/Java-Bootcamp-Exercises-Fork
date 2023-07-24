@@ -8,7 +8,8 @@ public class Main {
         Contact contact4 = new Contact("David", "456-789-0123", "1996-04-04", 27);
         Contact copyContact1 = new Contact(contact1);
         Contact copyContact2 = new Contact(contact3);
-    
+        contact1.setBirthDate("1989-01-01");
+
     }
 
 }
