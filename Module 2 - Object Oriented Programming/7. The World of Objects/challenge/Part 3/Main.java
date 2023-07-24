@@ -24,16 +24,30 @@ public class Main {
 
         printStore();
         userInput();
-        
-    }
 
-    public static void userInput() {
+      }
+
+      public static void userInput() {
         Scanner scanner = new Scanner(System.in);
+
+
         String status = "continue";
         while (status.equals("continue")) {
-            System.out.print("To edit another rating, type: 'continue': ");
-            status = scanner.next();
+          System.out.print("\nPlease choose an integer between 0 - 9: ");
+          int userChoice = scanner.nextInt();
+
+          Movie userMovie = store.getMovie(userChoice);
+
+          System.out.print("Set a new rating for " + userMovie.getName() + ": ");
+          double userRating = scanner.nextDouble();
+          userMovie.setRating(userRating);
+
+          store.setMovie(userChoice, userMovie);
+          System.out.print("To edit another rating, type: 'continue': ");
+          status = scanner.next();
         }
+
+        printStore();
         scanner.close();
     }
 
