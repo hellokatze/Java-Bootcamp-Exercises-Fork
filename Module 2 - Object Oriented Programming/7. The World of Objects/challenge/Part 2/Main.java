@@ -18,7 +18,9 @@ public class Main {
         };
 
         // TODO: populate the store object (defined on top) with movies before printing it
-
+        for (int i = 0; i < movies.length; i++) {
+            store.setMovie(i, movies[i]);
+        }
         printStore();
 
     }
