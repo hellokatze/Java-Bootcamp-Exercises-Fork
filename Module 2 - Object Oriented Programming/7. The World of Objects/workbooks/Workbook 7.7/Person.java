@@ -1,13 +1,13 @@
 import java.util.Arrays;
- 
+
 public class Person {
-    
+
     private String name;
     private String nationality;
     private String dateOfBirth;
     private String[] passport;
     private int seatNumber;
- 
+
     public Person(String name, String nationality, String dateOfBirth, int seatNumber) {
         this.name = name;
         this.nationality = nationality;
@@ -15,7 +15,7 @@ public class Person {
         this.seatNumber = seatNumber;
         this.passport = new String[3];
     }
- 
+
     public Person(Person source) {
         this.name = source.name;
         this.nationality = source.nationality;
@@ -23,39 +23,39 @@ public class Person {
         this.seatNumber = source.seatNumber;
         this.passport = Arrays.copyOf(source.passport, source.passport.length);
     }
-    
+
     public String getName() {
         return name;
     }
- 
+
     public String getNationality() {
         return nationality;
     }
- 
+
     public String getDateOfBirth() {
         return dateOfBirth;
     }
- 
+
     public int getSeatNumber() {
         return seatNumber;
     }
- 
+
     public void setName(String name) {
         this.name = name;
     }
- 
+
     public void setNationality(String nationality) {
         this.nationality = nationality;
     }
- 
+
     public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
- 
+
     public void setSeatNumber(int seatNumber) {
         this.seatNumber = seatNumber;
     }
- 
+
     public String[] getPassport() {
         return Arrays.copyOf(passport, passport.length);
     }
@@ -73,5 +73,11 @@ public class Person {
         seatNumber = ((int) (Math.random() * 11 + 1));
     }
 
- 
+    public String toString() {
+      return "Name: " + this.getName() + "\n" + "Nationality: " +
+              this.getNationality() + "\n" + "Date of Birth: " +
+              this.getDateOfBirth() + "\n" + "Seat Number: " +
+              this.getSeatNumber() + "\n" + "Passport: " +
+              Arrays.toString(this.getPassport()) + "\n";
+    }
 }
