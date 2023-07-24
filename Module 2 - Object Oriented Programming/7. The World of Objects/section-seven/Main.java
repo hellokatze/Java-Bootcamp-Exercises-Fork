@@ -1,21 +1,23 @@
 public class Main {
   public static void main(String[] args) {
-    Car nissan = new Car("Nissan", 10000, 2020, "green");
+    String[] spareParts = new String[] {"Tires", "Keys"};
+    Car nissan = new Car("Nissan", 10000, 2020, "green", spareParts);
     // nissan.make = "Nissan";
     // nissan.price = 10000;
     // nissan.year = 2020;
     // nissan.color = "green";
 
-    Car nissan2 = new Car(nissan);
-    nissan2.setColor("Yellow");
-    // nissan and nissan2 share a reference to the exact same object. One object can be updated through two different variables.
-    // Car nissan2 = nissan;
 
-    Car dodge = new Car("Dodge", 11000, 2019, "blue");
+    Car dodge = new Car("Dodge", 11000, 2019, "blue", spareParts);
     // dodge.make = "Dodge";
     // dodge.price = 11000;
     // dodge.year = 2019;
     // dodge.color = "blue";
+
+    Car nissan2 = new Car(nissan);
+    nissan2.setColor("Yellow");
+    // nissan and nissan2 share a reference to the exact same object. One object can be updated through two different variables.
+    // Car nissan2 = nissan;
 
     nissan2.drive();
 
