@@ -17,4 +17,7 @@ public class Store {
     this.books.set(index, new Book(book));
   }
 
+  public void addBook(Book book) {
+    this.books.add(new Book(book));
+  }
 }
