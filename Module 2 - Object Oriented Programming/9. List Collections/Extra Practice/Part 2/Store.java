@@ -26,6 +26,13 @@ public class Store {
     return this.books.contains(book);
   }
 
+  public void sellBook(String title) {
+    for (Book book : books) {
+      if (book.getTitle().equals(title)) {
+        this.books.remove(book);
+      }
+    }
+  }
 
   @Override
     public boolean equals(Object o) {
