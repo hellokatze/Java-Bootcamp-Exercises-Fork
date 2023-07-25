@@ -13,4 +13,8 @@ public class Store {
     return new Book(books.get(index));
   }
 
+  public void setBook(Book book, int index) {
+    this.books.set(index, new Book(book));
+  }
+
 }
