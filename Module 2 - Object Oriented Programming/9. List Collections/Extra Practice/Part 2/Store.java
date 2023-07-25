@@ -14,7 +14,7 @@ public class Store {
     return new Book(books.get(index));
   }
 
-  public void setBook(Book book, int index) {
+  public void setBook(int index, Book book) {
     this.books.set(index, new Book(book));
   }
 
@@ -32,22 +32,6 @@ public class Store {
         this.books.remove(book);
       }
     }
-  }
-
-  @Override
-    public boolean equals(Object o) {
-        if (o == this)
-            return true;
-        if (!(o instanceof Store)) {
-            return false;
-        }
-        Store store = (Store) o;
-        return Objects.equals(books, store.books);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(books);
   }
 
 }
