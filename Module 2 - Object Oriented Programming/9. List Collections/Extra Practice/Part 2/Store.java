@@ -27,9 +27,9 @@ public class Store {
   }
 
   public void sellBook(String title) {
-    for (Book book : books) {
-      if (book.getTitle().equals(title)) {
-        this.books.remove(book);
+    for (int i = 0; i < this.books.size(); i++) {
+      if (this.books.get(i).getTitle().equals(title)) {
+        this.books.remove(i);
       }
     }
   }
