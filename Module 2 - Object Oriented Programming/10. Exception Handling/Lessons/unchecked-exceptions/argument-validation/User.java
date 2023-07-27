@@ -7,8 +7,12 @@ public class User {
         return this.age;
     }
 
-    public void setAge(int age) { 
-        this.age = age;
+    public void setAge(int age) {
+        if (age < 0) {
+          throw new IllegalArgumentException("Age cannot be negative!");
+        }
+          this.age = age;
+
     }
 
     public String getUsername() {
@@ -16,7 +20,10 @@ public class User {
     }
 
     public void setUsername(String username) {
-        this.username = username;
+      if (username == null || username.isBlank()) {
+        throw new IllegalArgumentException("Username cannot be null or blank!");
+      }
+      this.username = username;
     }
 
 

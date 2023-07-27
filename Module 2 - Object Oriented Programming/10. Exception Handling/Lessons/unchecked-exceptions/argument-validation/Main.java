@@ -10,10 +10,25 @@ public class Main {
         System.out.println("We are setting up your user account.");
 
         System.out.print("Your username is currently " + user.getUsername() + ". Please update it here: ");
-        user.setUsername(user.getUsername());
+        String username = scanner.nextLine();
         
+        if (username.isBlank()) {
+          System.out.println("Sorry, that is an invalid username");
+        } else {
+          user.setUsername(scanner.nextLine());
+        }
+
         System.out.print("Your age is currently " + user.getAge() + ". Please update it here: ");
-        user.setAge(scanner.nextInt());
+        if (scanner.hasNextInt()) {
+          int age = scanner.nextInt();
+          if (age < 0 ) {
+            System.out.println("Sorry, age invalid.");
+          } else {
+            user.setAge(scanner.nextInt());
+          }
+        } else {
+          scanner.nextLine();
+        }
         scanner.close();
-    }     
+    }
 }
