@@ -6,10 +6,10 @@ public class Magazine {
 
   // Constructor
   public Magazine(String title, String publisher, int issueNumber, int publicationYear) {
-    this.title = title;
-    this.publisher = publisher;
-    this.issueNumber = issueNumber;
-    this.publicationYear = publicationYear;
+    setTitle(title);
+    setPublisher(publisher);
+    setIssueNumber(issueNumber);
+    setPublicationYear(publicationYear);
   }
 
   // Copy constructor
