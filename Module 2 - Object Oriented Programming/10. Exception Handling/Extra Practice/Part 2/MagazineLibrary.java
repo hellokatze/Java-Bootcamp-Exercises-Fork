@@ -11,4 +11,8 @@ public class MagazineLibrary {
   public Magazine getMagazine(int index) {
     return new Magazine(this.magazines.get(index));
   }
+
+  public void setMagazine(int index, Magazine magazine) {
+    this.magazines.add(index, new Magazine(magazine));
+  }
 }
