@@ -12,10 +12,10 @@ public class Magazine {
     }
 
     public Magazine(Magazine source) {
-      this.title = source.title;
-      this.publisher = source.publisher;
-      this.issueNumber = source.issueNumber;
-      this.publicationYear = source.publicationYear;
+      setTitle(source.getTitle());
+      setTitle(source.getPublisher());
+      setIssueNumber(source.getIssueNumber());
+      setPublicationYear(source.getPublicationYear());
     }
 
     public String getTitle() {
