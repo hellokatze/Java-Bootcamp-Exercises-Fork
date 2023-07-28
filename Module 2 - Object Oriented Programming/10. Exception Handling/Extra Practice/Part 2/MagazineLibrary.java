@@ -16,4 +16,8 @@ public class MagazineLibrary {
     this.magazines.set(index, new Magazine(magazine));
   }
 
+  public void addMagazine(Magazine magazine) {
+    this.magazines.add(new Magazine(magazine));
+  }
+
 }
