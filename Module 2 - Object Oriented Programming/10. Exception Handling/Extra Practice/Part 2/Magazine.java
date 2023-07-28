@@ -13,7 +13,7 @@ public class Magazine {
 
     public Magazine(Magazine source) {
       setTitle(source.getTitle());
-      setTitle(source.getPublisher());
+      setPublisher(source.getPublisher());
       setIssueNumber(source.getIssueNumber());
       setPublicationYear(source.getPublicationYear());
     }
