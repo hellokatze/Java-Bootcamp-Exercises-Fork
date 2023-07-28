@@ -19,4 +19,22 @@ public class Magazine {
     this.issueNumber = source.issueNumber;
     this.publicationYear = source.publicationYear;
   }
+
+  // Getters
+  public String getTitle() {
+    return this.title;
+  }
+
+  public String getPublisher() {
+    return this.publisher;
+  }
+
+  public int getIssueNumber() {
+    return this.issueNumber;
+  }
+
+  public int getPublicationYear() {
+    return this.publicationYear;
+  }
+  
 }
