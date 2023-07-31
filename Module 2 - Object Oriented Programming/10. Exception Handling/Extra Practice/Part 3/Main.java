@@ -47,10 +47,7 @@ public class Main {
     while (true) {
       System.out.print("\nPlease enter a valid publisher: ");
       String publisher = scanner.nextLine();
-      if (isNullOrBlank(publisher)) {
-        System.out.println("Sorry, invalid publisher");
-        publisher = scanner.nextLine();
-      } else {
+      if (!isNullOrBlank(publisher)) {
         return publisher;
       }
     }
@@ -61,15 +58,13 @@ public class Main {
       System.out.print("\nPlease enter a valid issue number (greater than 0): ");
       // First check if the next input is not an integer
       if (!scanner.hasNextInt()) {
-        scanner.next();
+        scanner.next(); // not using .nextLine() in order to avoid nextLine() trap.
         continue;
       }
 
       int issueNumber = scanner.nextInt();
       // TODO
-      if ((incorrectIssueNumber(issueNumber)))
-        continue;
-      else
+      if (!incorrectIssueNumber(issueNumber))
         return issueNumber;
     }
   }
@@ -83,8 +78,9 @@ public class Main {
       }
 
       int publicationYear = scanner.nextInt();
-      if (incorrectPublicationYear(publicationYear)) continue;
-      else return publicationYear;
+      if (!incorrectPublicationYear(publicationYear)) {
+        return publicationYear;
+      }
     }
   }
 
