@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Game {
 
@@ -7,13 +8,16 @@ public class Game {
 
     public Game(String arena) {
         // TODO
-    }
+        this.arena = arena;
+        this.date = LocalDate.now();
+      }
 
-    public void begin(Team home, Team away) {
+      public void begin(Team home, Team away) {
         // TODO
+        String formattedDate = this.date.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
         System.out.println
         (
-        "\n - This matchup takes place at the " + this.arena + " arena on " + "<day/month/year>" + "." + 
+        "\n - This matchup takes place at the " + this.arena + " arena on " + formattedDate + "." +
         "\n - Tonight's game is between the " + home.getName() + " and the " + away.getName() + ".\n" +
         "\n - The starting lineup for the home team is: at point guard, " + "<HOME_POINT_GUARD>" + "; at shooting guard, " + "<HOME_SHOOTING_GUARD>" + "; at small forward, " + "<HOME_SMALL_FORWARD>" + "; at power forward, " + "<HOME_POWER_FORWARD>" + "; and at center, " + "<HOME_CENTER>" + ".\n" +
         "\n - The starting lineup for the visiting team is: at point guard, " + "<AWAY_POINT_GUARD>" + "; at shooting guard, " + "<AWAY_SHOOTING_GUARD>" + "; at small forward, " + "<AWAY_SMALL_FORWARD>" + "; at power forward, " + "<AWAY_POWER_FORWARD>" + "; and at center, " + "<AWAY_CENTER>" +".\n" +
@@ -22,9 +26,3 @@ public class Game {
     }
 
 }
-
-    
-
-
-
-
