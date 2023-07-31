@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Contact {
 
     private String name;
@@ -30,5 +32,23 @@ public class Contact {
         this.age = age;
     }
 
+
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof Contact)) {
+            return false;
+        }
+        Contact contact = (Contact) o;
+        return Objects.equals(name, contact.name) && age == contact.age;
+    }
+
+    // default hashCode() method will check equality based on references. Not overriding default hashCode() method will violate the equality contract.
+    // always override hashCode() when you override equals.
+    
+    @Override
+    public int hashCode() {
+      return Objects.hash(name, age);
+    }
 
 }
