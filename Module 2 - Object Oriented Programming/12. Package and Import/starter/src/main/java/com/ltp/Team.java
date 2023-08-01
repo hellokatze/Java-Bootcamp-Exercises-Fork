@@ -1,3 +1,5 @@
+package src.main.java.com.ltp;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,7 +12,7 @@ public class Team {
         this.name = name;
         this.players = new HashMap<>();
     }
-    
+
     public String getName() {
         return this.name;
     }
@@ -26,5 +28,5 @@ public class Team {
     public void setPlayer(String position, String player) {
         this.players.put(position, player);
     }
-    
+
 }

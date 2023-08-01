@@ -1,7 +1,10 @@
+import src.main.java.com.ltp.Game;
+import src.main.java.com.ltp.Team;
+
 public class Main {
 
     public static void main(String[] args) {
-        
+
         Team bulls = new Team("Chicago Bulls");
         bulls.setPlayer("SHOOTING_GUARD", "Michael Jordan");
         bulls.setPlayer("SMALL_FORWARD", "Scottie Pippen");
