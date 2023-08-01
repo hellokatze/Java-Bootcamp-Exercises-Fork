@@ -15,6 +15,14 @@ public class Car {
   public static final double MIN_PRICE = 0;
   public static final double MAX_PRICE = 200000;
 
+  public Car(String make, String model, BodyType bodyType, int productionYear, double price) {
+    setMake(this.make);
+    setModel(this.model);
+    setBodyType(this.bodyType);
+    setProductionYear(this.productionYear);
+    setPrice(this.price);
+  }
+
   public String getMake() {
     return this.make;
   }
