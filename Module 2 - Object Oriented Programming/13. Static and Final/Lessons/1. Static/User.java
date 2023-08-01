@@ -2,10 +2,16 @@ public class User {
 
     private String firstName;
     private String lastName;
+    private static int userCount = 0;
 
     public User(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
+        userCount++;
+    }
+
+    public static int getUserCount() {
+      return userCount;
     }
 
     public String getFirstName() {
