@@ -1,3 +1,11 @@
+import static java.lang.Math.*;
+// .* will import every single static field and method from the Math class and gain direct access to all of them.
+// import static java.lang.Math.max;
+
+// PI is a static field, need to specify that we're importing a static member of the Math class.
+// by importing the field, we get direct access to PI.
+// PI is final.
+
 public class Circle {
 
     private double radius;
@@ -7,27 +15,27 @@ public class Circle {
     }
 
     public double getCircumference() {
-        return 2 * Math.PI * radius;
+        return 2 * PI * radius;
     }
 
     public double getArea() {
-        return Math.PI * radius * radius;
+        return PI * radius * radius;
     }
 
     public double getLargerRadius(double otherRadius) {
-        return Math.max(radius, otherRadius);
+        return max(radius, otherRadius);
     }
 
     public double getSmallerRadius(double otherRadius) {
-        return Math.min(radius, otherRadius);
+        return min(radius, otherRadius);
     }
 
     public double getRadiusSquared() {
-        return Math.pow(radius, 2);
+        return pow(radius, 2);
     }
 
     public double getRadiusSquareRoot() {
-        return Math.sqrt(radius);
+        return sqrt(radius);
     }
 
 }
