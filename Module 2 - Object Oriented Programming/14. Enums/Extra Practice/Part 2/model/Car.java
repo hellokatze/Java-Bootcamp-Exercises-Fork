@@ -20,6 +20,14 @@ public class Car {
         setBodyType(bodyType);
         setProductionYear(productionYear);
         setPrice(price);
+      }
+
+      public Car(Car source) {
+      setMake(source.make);
+      setModel(source.model);
+      setBodyType(source.bodyType);
+      setProductionYear(source.productionYear);
+      setPrice(source.price);
     }
 
     public String getMake() {
