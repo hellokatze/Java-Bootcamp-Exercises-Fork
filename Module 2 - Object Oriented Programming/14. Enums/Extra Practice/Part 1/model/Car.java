@@ -3,11 +3,14 @@ package model;
 public class Car {
   private String make;
   private String model;
+  private BodyType bodyType;
+  private int productionYear;
+  private double price;
+
   public enum BodyType {
     SEDAN, COUPE, HATCHBACK, SUV, TRUCK, VAN;
   }
-  private int productionYear;
-  private double price;
+
   public static final int MIN_PROD_YEAR = 1900;
   public static final double MIN_PRICE = 0;
   public static final double MAX_PRICE = 200000;
@@ -30,13 +33,15 @@ public class Car {
     this.model = model;
   }
 
-  public String getBodyType() {
-    return this.BodyType;
+  public BodyType getBodyType() {
+    return this.bodyType;
   }
 
   public void setBodyType(BodyType bodyType) {
-    if (bodyType == null) throw new IllegalArgumentException("Body type can't be null.");
-    this.BodyType = bodyType;
+    if (bodyType == null) {
+      throw new IllegalArgumentException("Body type can't be null.");
+    }
+    this.bodyType = bodyType;
   }
 
   public int getProductionYear() {
