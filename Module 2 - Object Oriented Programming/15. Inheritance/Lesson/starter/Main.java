@@ -15,6 +15,8 @@ public class Main {
       pants.fold();
       productStore(pants);
 
+      System.out.println("\n" + shirt);
+
     }
 
     public static void productStore(Product product) {
