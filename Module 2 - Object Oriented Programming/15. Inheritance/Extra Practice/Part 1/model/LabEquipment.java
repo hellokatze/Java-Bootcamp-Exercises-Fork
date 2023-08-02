@@ -45,4 +45,7 @@ public abstract class LabEquipment {
       throw new IllegalArgumentException("Year must be at least " + MIN_YEAR);
     }
   }
+
+  public abstract String performMaintenance();
+  
 }

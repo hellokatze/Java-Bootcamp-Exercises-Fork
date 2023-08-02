@@ -22,4 +22,9 @@ public class Microscope extends LabEquipment {
     this.magnification = magnification;
   }
 
+  @Override
+  public String performMaintenance() {
+    return "Microscope maintenance: Clean the lenses and check the light source.";
+  }
+
 }
