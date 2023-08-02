@@ -10,6 +10,11 @@ public class Microscope extends LabEquipment {
         setMagnification(magnification);
     }
 
+    public Microscope(Microscope source) {
+      super(source);
+      setMagnification(source.magnification);
+    }
+
     public int getMagnification() {
         return magnification;
     }
