@@ -35,4 +35,9 @@ public class Pants extends Product {
     System.out.println("Fold pants from bottom in thirds");
   }
 
+  @Override
+  public void wear() {
+    System.out.println("The " + waist + " " + length + " pants look good on you.");
+  }
+
 }
