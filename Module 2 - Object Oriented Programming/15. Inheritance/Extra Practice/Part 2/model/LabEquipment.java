@@ -53,4 +53,5 @@ public abstract class LabEquipment {
   }
 
   public abstract String performMaintenance();
+  public abstract LabEquipment clone(); // force child classes to override the clone() method.
 }

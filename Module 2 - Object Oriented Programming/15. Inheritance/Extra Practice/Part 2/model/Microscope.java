@@ -30,4 +30,10 @@ public class Microscope extends LabEquipment {
     public String performMaintenance() {
         return "Microscope maintenance: Clean the lenses and check the light source.";
     }
+
+    // give Microscope class the ability to clone itself.
+    @Override
+    public LabEquipment clone() {
+      return new Microscope(this);
+    }
 }
