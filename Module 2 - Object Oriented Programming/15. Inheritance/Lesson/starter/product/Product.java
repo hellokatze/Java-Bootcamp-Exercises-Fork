@@ -6,6 +6,12 @@ public class Product {
   private String color;
   private String brand;
 
+  public Product(double price, String color, String brand) {
+    this.price = price;
+    this.color = color;
+    this.brand = brand;
+  }
+
   public double getPrice() {
     return this.price;
   }
@@ -32,6 +38,7 @@ public class Product {
 
   public void fold() {
     System.out.println("Folding my " + this.getBrand() + " " + this.getClass().getSimpleName());
-    // this points to current object, name of the class from which the object was created.
+    // this points to current object, name of the class from which the object was
+    // created.
   }
 }
