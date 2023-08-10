@@ -5,7 +5,9 @@ public class Main {
     public static void main(String[] args) {
 
         List<Integer> integers = Arrays.asList(25, 19, 23, 45, 38, 23, 59, 12);
-
+        integers.sort((right, left) -> {
+          return right.compareTo(left); // sorting in ascending order -- comparing if element on the right is higher than the element on the left.
+        });
 
     }
 
@@ -13,7 +15,7 @@ public class Main {
 
 
 /**************IMPERATIVE APPROACH**************
- * 
+ *
         for (int i = 0; i < integers.size(); i++) {
             for (int j = i + 1; j < integers.size(); j++) {
                 if (integers.get(i).compareTo(integers.get(j)) > 0) {
