@@ -21,6 +21,11 @@ public class MovieStore {
       .toList();
   }
 
-  
+  public List<Movie> sortByReleaseYear() {
+    this.movies.stream()
+      .sorted((x, y) -> x.getYear().compareTo(y.getYear()))
+      .limit(3)
+      .toList();
+  }
 
 }
