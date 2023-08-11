@@ -9,7 +9,11 @@ public class Movie {
   private double rating;
 
   public Movie(String title, String director, String genre, int year, double rating) {
-
+    this.title = title;
+    this.director = director;
+    this.genre = genre;
+    this.year = year;
+    this.rating = rating;
   }
 
   public String getTitle() {
@@ -30,6 +34,11 @@ public class Movie {
 
   public double getRating() {
     return this.rating;
+  }
+
+  @Override
+  public String toString() {
+    return title + " (" + year + ") " + "directed by " + director + " - genre: " + genre + ", rating: " + rating;
   }
 
 }

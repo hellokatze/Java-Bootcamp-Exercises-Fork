@@ -16,15 +16,21 @@ public class MovieStore {
   }
 
   public List<Movie> filterByGenre(String genre) {
-    this.movies.stream()
+    return this.movies.stream()
       .filter(movie -> movie.getGenre().equals(genre))
       .toList();
   }
 
   public List<Movie> sortByReleaseYear() {
-    this.movies.stream()
-      .sorted((x, y) -> x.getYear().compareTo(y.getYear()))
-      .limit(3)
+    return this.movies.stream()
+      .sorted((x, y) -> Integer.compare(x.getYear(), y.getYear()))
+      .toList();
+  }
+
+  public List<Movie> getTopRatedMovies(int n) {
+    return this.movies.stream()
+      .sorted((x, y) -> Integer.compare(y.getYear(), x.getYear()))
+      .limit(n)
       .toList();
   }
 
