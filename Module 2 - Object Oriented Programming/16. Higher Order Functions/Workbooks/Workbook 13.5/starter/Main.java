@@ -24,6 +24,9 @@ public class Main {
         System.out.println("\nThese books are on sale\n-----------------------");
         books.stream()
             // intermediate operations go here...
-            .forEach(null); // terminal operation
+            .filter(book -> book.getGenre().equals("Romance"))
+            .map(book -> new Book(book.getTitle(), book.getGenre(), book.getYear(), book.getPrice()/2))
+            .sorted((x, y) -> x.getYear().compareTo(y.getYear()))
+            .forEach(book -> System.out.println(book.getGenre() + "\t" + book.getYear() + "\t" + book.getPrice() + "\t" + book.getTitle())); // terminal operation
     }
 }
