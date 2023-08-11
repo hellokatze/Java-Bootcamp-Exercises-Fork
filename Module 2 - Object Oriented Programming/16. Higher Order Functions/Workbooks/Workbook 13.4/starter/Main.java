@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) {
+  public static void main(String[] args) {
 
         List<Student> students = Arrays.asList(
             new Student("Alice", 85.6),
@@ -19,6 +19,12 @@ public class Main {
 
         students.stream()
             //intermediate operation goes here
-           .forEach(null); // terminal operation
+            // filter operation returns a filtered stream of elements
+           .filter(student -> {
+            return student.getScore() > 80;
+           })
+           .forEach(student -> {
+            System.out.println("Congratulations " + student.getName() + " for achieving a score of " + student.getScore());
+           }); // terminal operation
     }
 }
