@@ -16,4 +16,12 @@ public class TradeAccountRepository {
   public TradeAccount retrieveTradeAccount(String id) {
     return this.datastore.get(id).clone();
   }
+
+  public void updateTradeAccount(TradeAccount tradeAccount) {
+    this.datastore.put(tradeAccount.getId(), tradeAccount.clone());
+  }
+
+  public void deleteTradeAccount(String id) {
+    this.datastore.remove(id);
+  }
 }
