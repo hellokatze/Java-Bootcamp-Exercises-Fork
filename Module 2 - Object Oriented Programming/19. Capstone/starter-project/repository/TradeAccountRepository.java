@@ -14,7 +14,11 @@ public class TradeAccountRepository {
   }
 
   public TradeAccount retrieveTradeAccount(String id) {
-    return this.datastore.get(id).clone();
+    if (datastore.containsKey(id)) {
+      return this.datastore.get(id).clone();
+    } else {
+      return null;
+    }
   }
 
   public void updateTradeAccount(TradeAccount tradeAccount) {
