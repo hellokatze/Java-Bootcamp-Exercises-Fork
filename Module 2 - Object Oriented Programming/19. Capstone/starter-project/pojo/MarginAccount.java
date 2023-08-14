@@ -6,6 +6,11 @@ public class MarginAccount extends TradeAccount {
 
   private BigDecimal margin;
 
+  public MarginAccount(String id, BigDecimal margin) {
+    super(id);
+    setMargin(this.margin);
+  }
+
   public BigDecimal getMargin() {
     return margin;
   }
