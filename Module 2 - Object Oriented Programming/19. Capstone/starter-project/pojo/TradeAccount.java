@@ -5,7 +5,7 @@ public abstract class TradeAccount {
   private String id;
 
   public TradeAccount(String id) {
-    setId(this.id);
+    setId(id);
   }
 
   public String getId() {

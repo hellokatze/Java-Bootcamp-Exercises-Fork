@@ -8,11 +8,11 @@ public class MarginAccount extends TradeAccount {
 
   public MarginAccount(String id, BigDecimal margin) {
     super(id);
-    setMargin(this.margin);
+    setMargin(margin);
   }
 
   public BigDecimal getMargin() {
-    return margin;
+    return this.margin;
   }
 
   public void setMargin(BigDecimal margin) {
@@ -20,7 +20,7 @@ public class MarginAccount extends TradeAccount {
   }
 
   @Override
-  public MarginAccount clone() {
+  public TradeAccount clone() {
     return new MarginAccount(super.getId(), this.margin);
   }
 

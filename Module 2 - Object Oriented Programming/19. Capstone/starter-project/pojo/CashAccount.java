@@ -20,7 +20,7 @@ public class CashAccount extends TradeAccount {
   }
 
   @Override
-  public CashAccount clone() {
+  public TradeAccount clone() {
     return new CashAccount(super.getId(), this.cashBalance);
   }
 
