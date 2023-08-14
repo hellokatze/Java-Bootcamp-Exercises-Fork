@@ -14,32 +14,32 @@ public class CashAccountService implements TradeAccountService {
     this.tradeAccountRepository = repository;
   }
 
-  public void createCashAccount(CashAccount account) {
+  public void createTradeAccount(CashAccount account) {
     this.tradeAccountRepository.createTradeAccount(account);
   }
 
-  public CashAccount retrieveCashAccount(String id) {
+  public CashAccount retrieveTradeAccount(String id) {
     return (CashAccount) this.tradeAccountRepository.retrieveTradeAccount(id);
   }
 
-  public void updateCashAccount(CashAccount account) {
+  public void updateTradeAccount(CashAccount account) {
     this.tradeAccountRepository.updateTradeAccount(account);
   }
 
-  public void deleteCashAccount(String id) {
+  public void deleteTradeAccount(String id) {
     this.tradeAccountRepository.deleteTradeAccount(id);
   }
 
   @Override
   public void deposit(String id, BigDecimal amount) {
-    CashAccount cashAccount = retrieveCashAccount(id);
+    CashAccount cashAccount = retrieveTradeAccount(id);
     cashAccount.setCashBalance(cashAccount.getCashBalance().add(amount));
     this.tradeAccountRepository.updateTradeAccount(cashAccount);
   }
 
   @Override
   public void withdraw(String id, BigDecimal amount) {
-    CashAccount cashAccount = retrieveCashAccount(id);
+    CashAccount cashAccount = retrieveTradeAccount(id);
     cashAccount.setCashBalance(cashAccount.getCashBalance().subtract(amount));
     this.tradeAccountRepository.updateTradeAccount(cashAccount);
   }

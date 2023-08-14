@@ -13,32 +13,32 @@ public class MarginAccountService implements TradeAccountService {
     this.tradeAccountRepository = repository;
   }
 
-  public void createMarginAccount(MarginAccount account) {
+  public void createTradeAccount(MarginAccount account) {
     this.tradeAccountRepository.createTradeAccount(account);
   }
 
-  public MarginAccount retrieveMarginAccount(String id) {
+  public MarginAccount retrieveTradeAccount(String id) {
     return (MarginAccount) this.tradeAccountRepository.retrieveTradeAccount(id);
   }
 
-  public void updateMarginAccount(MarginAccount account) {
+  public void updateTradeAccount(MarginAccount account) {
     this.tradeAccountRepository.updateTradeAccount(account);
   }
 
-  public void deleteMarginAccount(String id) {
+  public void deleteTradeAccount(String id) {
     this.tradeAccountRepository.deleteTradeAccount(id);
   }
 
   @Override
   public void deposit(String id, BigDecimal amount) {
-    MarginAccount marginAccount = retrieveMarginAccount(id);
+    MarginAccount marginAccount = retrieveTradeAccount(id);
     marginAccount.setMargin(marginAccount.getMargin().add(amount));
     this.tradeAccountRepository.updateTradeAccount(marginAccount);
   }
 
   @Override
   public void withdraw(String id, BigDecimal amount) {
-    MarginAccount marginAccount = retrieveMarginAccount(id);
+    MarginAccount marginAccount = retrieveTradeAccount(id);
     marginAccount.setMargin(marginAccount.getMargin().subtract(amount));
     this.tradeAccountRepository.updateTradeAccount(marginAccount);
   }
