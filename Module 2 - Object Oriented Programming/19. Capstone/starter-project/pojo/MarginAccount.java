@@ -19,4 +19,9 @@ public class MarginAccount extends TradeAccount {
     this.margin = margin;
   }
 
+  @Override
+  public MarginAccount clone() {
+    return new MarginAccount(super.getId(), this.margin);
+  }
+
 }
