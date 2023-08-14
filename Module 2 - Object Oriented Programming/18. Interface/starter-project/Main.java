@@ -6,6 +6,7 @@ import pojo.Account;
 import pojo.Checking;
 import pojo.Credit;
 import repository.AccountRepository;
+import service.AccountService;
 import service.CheckingService;
 import service.CreditService;
 
@@ -38,6 +39,4 @@ public class Main {
         repository.updateAccount(checking);
         repository.deleteAccount("G4567H");
     }
-
-
 }
