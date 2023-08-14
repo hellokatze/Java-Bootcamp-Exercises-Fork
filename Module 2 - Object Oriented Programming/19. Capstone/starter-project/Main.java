@@ -28,4 +28,20 @@ public class Main {
         }
       });
   }
+
+  public static void applyTransactions() throws IOException {
+    Files.lines(paths[1])
+      .forEach(line -> {
+        String[] words = line.split(" ");
+        if (words[0].equals("CASH") && words[2].equals("DEPOSIT")) {
+          cashAccountService.deposit(words[1], new BigDecimal(words[3]));
+        } else if (words[0].equals("CASH") && words[2].equals("WITHDRAWAL")) {
+          cashAccountService.withdraw(words[1], new BigDecimal(words[3]));
+        } else if (words[0].equals("MARGIN") && words[2].equals("DEPOSIT")) {
+          marginAccountService.deposit(words[1], new BigDecimal(words[3]));
+        } else if (words[0].equals("MARGIN") && words[2].equals("WITHDRAWAL")) {
+          marginAccountService.withdraw(words[1], new BigDecimal(words[3]));
+        }
+      });
+  }
 }
