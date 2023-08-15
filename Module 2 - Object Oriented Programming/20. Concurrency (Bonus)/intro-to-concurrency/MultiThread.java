@@ -11,7 +11,8 @@ public class MultiThread {
       // when possible, avoid anonymous classes and use a lambda expression instead.
       Thread thread2 = new Thread(() -> longTask());
       thread2.start();
-      System.out.println(thread2.getState());
+
+      System.out.println("OH NO A BIG ERROR OCCURRED IN THE MAIN THREAD! LET'S INTERRUPT THE BACKGROUND THREAD!!!");
       System.out.println("Doing other work on main thread");
 
       // Runnable runnable = new Runnable() {
@@ -27,15 +28,23 @@ public class MultiThread {
     }
 
   public static void longTask() {
-    long t = System.currentTimeMillis();
-    long end = t + 3000;
-
-    while (true) {
-      if (System.currentTimeMillis() == end) {
-        System.out.println("Finished long task");
-        break;
-      }
+    try {
+      Thread.sleep(3000);
+    } catch (InterruptedException e) {
+      System.out.println("Done sleeping");
     }
+    // long t = System.currentTimeMillis();
+    // long end = t + 3000;
+
+    // while (true) {
+    //   if (System.currentTimeMillis() == end) {
+    //     System.out.println("Finished long task");
+    //     break;
+    //   } else if (Thread.currentThread().isInterrupted()) {
+    //     System.out.println("This task has been prematurely interrupted.");
+    //     break;
+    //   }
+    // }
   }
 
 }
