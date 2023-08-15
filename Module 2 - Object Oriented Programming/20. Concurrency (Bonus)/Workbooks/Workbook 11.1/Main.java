@@ -10,16 +10,18 @@ public class Main {
   static final String SALES = "data/sales.csv"; // Use backslash Windows users
 
   public static void main(String[] args) {
-
     try {
       Path path = Paths.get(Thread.currentThread().getContextClassLoader().getResource(SALES).toURI());
-      average(path, "Furniture");
-      average(path, "Technology");
-      average(path, "Office Supplies");
-      totalAverage(path);
+      Thread thread2 = new Thread(() -> average(path, "Furniture"));
+      Thread thread3 = new Thread(() -> average(path, "Technology"));
+      Thread thread4 = new Thread(() -> average(path, "Office Supplies"));
+      Thread thread5 = new Thread(() -> totalAverage(path));
+
+      thread2.start();
+      thread3.start();
+      thread4.start();
+      thread5.start();
     } catch (URISyntaxException e) {
-      System.out.println(e.getMessage());
-    } catch (IOException e) {
       System.out.println(e.getMessage());
     }
 
@@ -31,7 +33,7 @@ public class Main {
 
   }
 
-  public static Double average(Path path, String category) throws IOException {
+  public static Double average(Path path, String category) {
     try {
       return Files.lines(path)
           .skip(1)
