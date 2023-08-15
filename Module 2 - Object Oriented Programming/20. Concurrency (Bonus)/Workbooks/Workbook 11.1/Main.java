@@ -9,27 +9,46 @@ public class Main {
 
   static final String SALES = "data/sales.csv"; // Use backslash Windows users
 
+  static double furniture = 0;
+  static double tech = 0;
+  static double supplies = 0;
+  static double total = 0;
+
   public static void main(String[] args) {
     try {
       Path path = Paths.get(Thread.currentThread().getContextClassLoader().getResource(SALES).toURI());
-      Thread thread2 = new Thread(() -> average(path, "Furniture"));
-      Thread thread3 = new Thread(() -> average(path, "Technology"));
-      Thread thread4 = new Thread(() -> average(path, "Office Supplies"));
-      Thread thread5 = new Thread(() -> totalAverage(path));
+      Thread thread2 = new Thread(() -> furniture = average(path, "Furniture"));
+      Thread thread3 = new Thread(() -> tech = average(path, "Technology"));
+      Thread thread4 = new Thread(() -> supplies = average(path, "Office Supplies"));
+      Thread thread5 = new Thread(() -> total = totalAverage(path));
 
       thread2.start();
       thread3.start();
       thread4.start();
       thread5.start();
+
+      Scanner scan = new Scanner(System.in);
+      System.out.print("Please enter your name to access the Global Superstore dataset: ");
+      String name = scan.nextLine();
+      try {
+        thread2.join();
+        thread3.join();
+        thread4.join();
+        thread5.join();
+
+        System.out.println("\nThank you " + name + ". The average sales for Global Superstore are:\n");
+        System.out.println("Average Furniture Sales: " + furniture);
+        System.out.println("Average Technology Sales: " + tech);
+        System.out.println("Average Office Supplies Sales: " + supplies);
+        System.out.println("Total Average: " + total);
+      } catch (InterruptedException e) {
+        System.out.println(e.getMessage());
+      }
+      scan.close();
+
     } catch (URISyntaxException e) {
       System.out.println(e.getMessage());
     }
-
-    Scanner scan = new Scanner(System.in);
-    System.out.print("Please enter your name to access the Global Superstore dataset: ");
-    String name = scan.nextLine();
-    System.out.println("Access Denied. We apologize for the inconvenience. Have a good day " + name + ".");
-    scan.close();
 
   }
 
@@ -47,21 +66,18 @@ public class Main {
     }
   }
 
-
   public static Double totalAverage(Path path) {
     try {
       return Files.lines(path)
-      .skip(1)
-      .map((line) -> line.split(","))
-      .mapToDouble((values) -> Double.valueOf(values[1]) * Double.valueOf(values[2]))
-      .average().getAsDouble();
+          .skip(1)
+          .map((line) -> line.split(","))
+          .mapToDouble((values) -> Double.parseDouble(values[1]) * Double.parseDouble(values[2]))
+          .average().getAsDouble();
     } catch (IOException e) {
       System.out.println(e.getMessage());
       return 0.0;
     }
   }
-
-
 
   /**
    * Function name: average
@@ -80,8 +96,6 @@ public class Main {
    *         6. Returns the average as double.
    *
    */
-
-
 
   /**
    * Function name: totalAverage
