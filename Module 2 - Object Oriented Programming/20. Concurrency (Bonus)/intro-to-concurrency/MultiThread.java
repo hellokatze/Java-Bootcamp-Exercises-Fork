@@ -11,8 +11,9 @@ public class MultiThread {
       // when possible, avoid anonymous classes and use a lambda expression instead.
       Thread thread2 = new Thread(() -> longTask());
       thread2.start();
+      System.out.println(thread2.getState());
       System.out.println("Doing other work on main thread");
-      
+
       // Runnable runnable = new Runnable() {
       // // This makes an anonymous class so you don't have to declare it above. But you must override its methods:
       //   @Override
