@@ -4,6 +4,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Scanner;
+import java.util.concurrent.FutureTask;
 
 public class Main {
 
@@ -17,10 +18,14 @@ public class Main {
   public static void main(String[] args) {
     try {
       Path path = Paths.get(Thread.currentThread().getContextClassLoader().getResource(SALES).toURI());
-      Thread thread2 = new Thread(() -> furniture = average(path, "Furniture"));
-      Thread thread3 = new Thread(() -> tech = average(path, "Technology"));
-      Thread thread4 = new Thread(() -> supplies = average(path, "Office Supplies"));
-      Thread thread5 = new Thread(() -> total = totalAverage(path));
+      FutureTask<Double> future = new FutureTask<>(() -> average(path, "Furniture"));
+      Thread thread2 = new Thread(future);
+      FutureTask<Double> future2 = new FutureTask<>(() -> average(path, "Technology"));
+      Thread thread3 = new Thread(future2);
+      FutureTask<Double> future3 = new FutureTask<>(() -> average(path, "Office Supplies"));
+      Thread thread4 = new Thread(future3);
+      FutureTask<Double> future4 = new FutureTask<>(() -> totalAverage(path));
+      Thread thread5 = new Thread(future4);
 
       thread2.start();
       thread3.start();
@@ -31,17 +36,17 @@ public class Main {
       System.out.print("Please enter your name to access the Global Superstore dataset: ");
       String name = scan.nextLine();
       try {
-        thread2.join();
-        thread3.join();
-        thread4.join();
-        thread5.join();
+        furniture = future.get();
+        tech = future2.get();
+        supplies = future3.get();
+        total = future4.get();
 
         System.out.println("\nThank you " + name + ". The average sales for Global Superstore are:\n");
         System.out.println("Average Furniture Sales: " + furniture);
         System.out.println("Average Technology Sales: " + tech);
         System.out.println("Average Office Supplies Sales: " + supplies);
         System.out.println("Total Average: " + total);
-      } catch (InterruptedException e) {
+      } catch (Exception e) {
         System.out.println(e.getMessage());
       }
       scan.close();
