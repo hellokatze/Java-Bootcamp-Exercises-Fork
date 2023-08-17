@@ -1,4 +1,6 @@
 import java.util.Scanner;
+import java.util.concurrent.Callable;
+import java.util.concurrent.FutureTask;
 
 public class Main {
 
@@ -10,8 +12,10 @@ public class Main {
     public static void main(String[] args) {
 
         //call generateNumber here...
-        Runnable runnable = () -> result = generateNumber();
-        Thread thread = new Thread(runnable);
+        Callable<Double> callable = () -> generateNumber();
+        // Threads aren't designed to return a result. A thread can only be created out of a Runnable. But thanks to polymorphism, FutureTask can behave like a Runnable.
+        FutureTask<Double> future = new FutureTask<>(callable);
+        Thread thread = new Thread(future);
         thread.start();
         //calculate precision level here...
 
@@ -20,8 +24,8 @@ public class Main {
         scan.next();
         scan.close();
         try {
-          thread.join();
-        } catch (InterruptedException e) {
+          result = future.get(); // future.get() blocks the main thread until task in other thread finishes. future.get() takes the value held by the other thread after it finishes and then use it as the main thread finishes.
+        } catch (Exception e) {
           System.out.println(e.getMessage());
         }
         double precision = difference(result);
